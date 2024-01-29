@@ -9,7 +9,5 @@ This project directory contains tasks that acheive the following learning object
 * How to use the `cut` command
 * What are files and other comparison operators, and how to use them
 
-### Featured source files
-* Bash scripts
 
-See file specifications [here](https://github.com/Samuel-IG16/alx-system_engineering-devops#readme)
+
