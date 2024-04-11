@@ -34,26 +34,22 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-        option forwardfor
-        option http-server-close
+        
 
-frontend www-http
+frontend aali1189-frontend
         bind *:80
-        reqadd X-Forwarded-Proto:\ http
-        default_backend www-backend
+        mode http
+        http-request redirect scheme https code 301 unless { ssl_fc }
+        http-request set-header X_Forwarded-Proto HTTP
+        default_backend aali1189-backend
 
-frontend www-https
-        bind   0.0.0.0:443 ssl crt /etc/haproxy/certs/www.codewithsammy.tech.pem
-        reqadd X-Forwarded-Proto:\ https
-        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-        use_backend letsencrypt-backend if letsencrypt-acl
-        default_backend www-backend
+frontend aali1189-frontend-https
+        bind   *:443 ssl crt /etc/haproxy/certs/aali1189.tech.pem
+        http-request set-header X-Forwarded-Proto https
+        default_backend aali1189-backend
 
-backend www-backend
+backend aali1189-tech-backend
         redirect scheme https if !{ ssl_fc }
         balance roundrobin
-        server 36581-web-01 3.85.136.108:80 check
-        server 36581-web-02 54.210.60.68:80 check
-
-backend letsencrypt-backend
-        server letsencrypt 127.0.0.1:54321
+        server 522186-web-01 3.85.136.108:80 check
+        server 522186-web-02 54.210.60.68:80 check
