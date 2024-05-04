@@ -15,5 +15,5 @@ frontend https
 backend backend_servers
     balance roundrobin
     option httpchk GET / HTTP/1.1\r\nHost:\ www.aali1189.tech
-    server 522186-web-01 3.85.136.108:80 check
+    server 522186-web-01 100.25.148.22:80 check
     server 522186-web-02 54.210.60.68:80 check
