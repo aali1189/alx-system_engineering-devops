@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-"""
-Script that queries subscribers on a given Reddit subreddit.
-"""
 
 import requests
 
@@ -15,4 +12,5 @@ def number_of_subscribers(subreddit):
         data = response.json()
         subscribers = data['data']['subscribers']
         return subscribers
-return 0
+    else:
+        return 0
