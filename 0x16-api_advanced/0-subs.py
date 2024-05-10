@@ -6,7 +6,7 @@ from sys import argv
 
 def number_of_subscribers(subreddit):
     """subs"""
-    head = {'User-Agent': 'Dan Kazam'}
+    head = {'User-Agent': 'Chrome'}
     count = get('https://www.reddit.com/r/{}/about.json'.format(
         subreddit), headers=head).json()
     try:
