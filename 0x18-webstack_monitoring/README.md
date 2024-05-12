@@ -1,7 +1,7 @@
 # 0x18. Webstack monitoring
 
 <p align='center'>
-   <img src="">
+   <img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/281/hb3pAsO.png">
 </p>
 
 ## Learning Objectives
